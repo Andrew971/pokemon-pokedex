@@ -38,7 +38,7 @@ function FilterComponent({
         }
       >
         <Option value={"selection:clear"}>
-          <div className="flex flex-row gap-4 items-center justify-center no-scrollbar">
+          <div className="flex flex-row gap-4 items-center justify-center">
             {/* <XCircleIcon className='h-8 w-8'/> */}
             <Typography
               variant="h5"
@@ -51,7 +51,7 @@ function FilterComponent({
         {items.map((item) => {
           return (
             <Option key={item.english} value={item.english}>
-              <div className="flex flex-row gap-4 items-center justify-start no-scrollbar">
+              <div className="flex flex-row gap-4 items-center justify-start">
                 <Checkbox
                   className="h-5 w-5"
                   checked={selection.has(item.english)}
