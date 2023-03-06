@@ -3,6 +3,7 @@ import PokemonDB, { pokemonSet, Pokemon, pokemonType } from '../pokemon/DB'
 import type { GetServerSidePropsContext, InferGetServerSidePropsType } from 'next';
 import { Suspense } from 'react';
 import { useSearch } from 'hooks/useSearch';
+import AppBar from '@components/appBar';
 
 export async function getServerSideProps(_context: GetServerSidePropsContext) {
   return {
@@ -37,7 +38,13 @@ export default function Home({
 
   return (<Suspense fallback={<h1>🌀 Loading...</h1>}>
     <div className='flex flex-col h-[100vh] justify-start bg-gray-100' >
-      header
+      <AppBar 
+        onSearch={onSearch}
+        onSelect={onFilter}
+        onClearSelection={onClearSelection}
+        filterItems={pokemonType}
+        selection={selection}
+      />
       <main className="container mx-auto p-4 h-fit">
         <List 
           items={listItems} 
